@@ -11,4 +11,4 @@ async def on_ready():
 async def 응원해줘(message):
     await message.channel.send('Hi!')
  
-bot.run('MTE1MDY4MTQ0NjEwNTc1MTYxMg.GMl1Rr.N_KUFUo65PJYG0P0JTAjuhs3bIvFXbaoSIbYHQ')
+bot.run('TOKEN')
