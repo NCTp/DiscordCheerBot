@@ -32,4 +32,4 @@ async def on_ready():
 async def 응원해줘(message):
     await message.channel.send('오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!')
  
-bot.run('MTE1MDY4MTQ0NjEwNTc1MTYxMg.GEMvuo.DmGtIK_Go7c-FXPXA4-x5Ud46JL2-a9f2Hh0Zc')
+bot.run('TOKEN')
