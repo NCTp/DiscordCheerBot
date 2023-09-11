@@ -12,9 +12,16 @@ bot = commands.Bot(command_prefix='#',intents=discord.Intents.all())
 playing = cycle(['응원', '응원2'])
 
 @tasks.loop(seconds=1)
-async def every_hour_notice():
+async def morning_cheer():
     if datetime.datetime.now().second == 50:
-        await bot.get_channel(1097759845077225565).send("현재 {}시 {}분 입니다.".format(datetime.datetime.now().hour, datetime.datetime.now().minute))
+        await bot.get_channel(1097759845077225565).send("오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!")
+        # 1초 sleep하여 중복 전송 방지
+        time.sleep(1)
+
+@tasks.loop(seconds=1)
+async def night_cheer():
+    if datetime.datetime.now().second == 55:
+        await bot.get_channel(1097759845077225565).send("오늘 하루도 고생 많으셨습니다. 회원님들 모두 화이팅!")
         # 1초 sleep하여 중복 전송 방지
         time.sleep(1)
         
@@ -26,10 +33,11 @@ async def change_status():
 async def on_ready():
     print(f'Login bot: {bot.user}')
     change_status.start()
-    every_hour_notice.start()
+    morning_cheer.start()
+    night_cheer.start()
  
 @bot.command()
 async def 응원해줘(message):
     await message.channel.send('오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!')
  
-bot.run('TOKEN')
+bot.run('코제키우이화이팅')
