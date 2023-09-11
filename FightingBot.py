@@ -29,15 +29,19 @@ async def night_cheer():
 async def change_status():
     await bot.change_presence(activity = discord.Game(next(playing)))
         
+
+@bot.command()
+async def 응원해줘(message):
+    await message.channel.send("오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!")
+
+@bot.command()
+async def 데일리랄튜브(message):
+    await message.channel.send("Test")
+
 @bot.event
 async def on_ready():
     print(f'Login bot: {bot.user}')
     change_status.start()
     morning_cheer.start()
     night_cheer.start()
- 
-@bot.command()
-async def 응원해줘(message):
-    await message.channel.send('오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!')
- 
 bot.run('코제키우이화이팅')
