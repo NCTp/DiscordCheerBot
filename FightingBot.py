@@ -13,14 +13,14 @@ playing = cycle(['응원', '응원2'])
 
 @tasks.loop(seconds=1)
 async def morning_cheer():
-    if datetime.datetime.now().second == 50:
+    if datetime.datetime.now().hour == 7 and datetime.datetime.now().minute == 0 and datetime.datetime.now().second == 0:
         await bot.get_channel(1097759845077225565).send("오늘도 모두 좋은 하루 보내시길 바랍니다. 회원님들 모두 화이팅!")
         # 1초 sleep하여 중복 전송 방지
         time.sleep(1)
 
 @tasks.loop(seconds=1)
 async def night_cheer():
-    if datetime.datetime.now().second == 55:
+    if datetime.datetime.now().hour == 21 and datetime.datetime.now().minute == 0 and datetime.datetime.now().second == 0:
         await bot.get_channel(1097759845077225565).send("오늘 하루도 고생 많으셨습니다. 회원님들 모두 화이팅!")
         # 1초 sleep하여 중복 전송 방지
         time.sleep(1)
