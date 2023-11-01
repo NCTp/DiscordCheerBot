@@ -44,7 +44,7 @@ async def night_cheer():
 @tasks.loop(seconds=20)
 async def Mode_Concentration():
     #await bot.get_channel(1097759845077225565).send(Bot_State.get_state())
-
+    #조건문 임시 테스트
     if Bot_State.get_state() == "집중모드":
         if datetime.datetime.now().minute == 55:
             await bot.get_channel(1097759845077225565).send("휴식")
